@@ -742,7 +742,7 @@
  */
 #define DEFAULT_AXIS_STEPS_PER_UNIT_E0 266 // 95% of the original 280 to account for normalised flow
 #define DEFAULT_AXIS_STEPS_PER_UNIT \
-    { 100, 100, 400, DEFAULT_AXIS_STEPS_PER_UNIT_E0 }
+    { 200, 200, 400, DEFAULT_AXIS_STEPS_PER_UNIT_E0 }
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
@@ -753,7 +753,7 @@
 
 /// HW limits of feed rate
 #define HWLIMIT_NORMAL_MAX_FEEDRATE \
-    { 300, 300, 12, 120 }
+    { 300, 300, 40, 120 }
 #define HWLIMIT_STEALTH_MAX_FEEDRATE \
     { 160, 160, 40, 100 }
 
