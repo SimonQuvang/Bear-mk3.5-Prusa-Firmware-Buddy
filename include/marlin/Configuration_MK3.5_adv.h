@@ -1560,9 +1560,13 @@
     constexpr float HOLD_MULTIPLIER[4] = {1, 1, 1, 1};  // Scales down the holding current from run current
     #define INTERPOLATE true // Interpolate X/Y/Z_MICROSTEPS to 256
 
+    #if X_DRIVER_TYPE == TMC2130 && Y_DRIVER_TYPE == X_DRIVER_TYPE
+        #define HAS_TMC_WAVETABLE // enable wavetable correction for this driver/motor type
+    #endif
+
     #if AXIS_IS_TMC(X)
-        #define X_CURRENT 300 // (mA) RMS current.  MK3 motors
-        #define X_MICROSTEPS 16 // 0..256
+        #define X_CURRENT 600 // (mA) RMS current.  Custom LDO 0.9 degree steppers
+        #define X_MICROSTEPS 32 // 0..256
         #define X_RSENSE 0.22
         #define X_CHAIN_POS 0
     #endif
@@ -1574,8 +1578,8 @@
     #endif
 
     #if AXIS_IS_TMC(Y)
-        #define Y_CURRENT 370 // (mA) RMS current.  MK3 motors
-        #define Y_MICROSTEPS 16
+        #define Y_CURRENT 700 // (mA) RMS current.  Custom LDO 0.9 degree steppers
+        #define Y_MICROSTEPS 32
         #define Y_RSENSE 0.22
         #define Y_CHAIN_POS 0
     #endif
@@ -1606,8 +1610,8 @@
     #endif
 
     #if AXIS_IS_TMC(E0)
-        #define E0_CURRENT 490
-        #define E0_MICROSTEPS 32
+        #define E0_CURRENT 600
+        #define E0_MICROSTEPS 16
         #define E0_RSENSE 0.22
         #define E0_CHAIN_POS 0
     #endif
