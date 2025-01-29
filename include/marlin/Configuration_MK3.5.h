@@ -742,14 +742,14 @@
  */
 #define DEFAULT_AXIS_STEPS_PER_UNIT_E0 415 // 95% of the original 280 to account for normalised flow
 #define DEFAULT_AXIS_STEPS_PER_UNIT \
-    { 400, 400, 400, DEFAULT_AXIS_STEPS_PER_UNIT_E0 }
+    { 200, 200, 400, DEFAULT_AXIS_STEPS_PER_UNIT_E0 }
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
 #define DEFAULT_MAX_FEEDRATE \
-    { 400, 400, 40, 45 }
+    { 300, 300, 40, 45 }
 
 /// HW limits of feed rate
 #define HWLIMIT_NORMAL_MAX_FEEDRATE \
@@ -1421,7 +1421,7 @@
 #endif
 
 // Homing speeds (mm/m)
-#define HOMING_FEEDRATE_XY (70 * 60)
+#define HOMING_FEEDRATE_XY (62 * 60)
 #define HOMING_FEEDRATE_Z (8 * 60)
 #define HOMING_FEEDRATE_INVERTED_Z (30 * 60)
 

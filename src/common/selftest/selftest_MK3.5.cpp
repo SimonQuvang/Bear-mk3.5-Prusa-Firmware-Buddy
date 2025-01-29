@@ -42,7 +42,10 @@ static constexpr const char *_suffix[] = { "_fan", "_xyz", "_heaters" };
 /// These speeds create major chord
 /// https://en.wikipedia.org/wiki/Just_intonation
 
-static constexpr float XYfr_table[] = { HOMING_FEEDRATE_XY / 60 };
+// Feedrate for measuring X/Y axis length. Used to be HOMING_FEEDRATE_XY / 60,
+// but at those speeds the move sometimes, on certain printers, stalls during
+// the axis measurements. Higher speeds alleviate this problem.
+static constexpr float XYfr_table[] = { 120.F };
 static constexpr size_t xy_fr_table_size = sizeof(XYfr_table) / sizeof(XYfr_table[0]);
 static constexpr float Zfr_table_fw[] = { maxFeedrates[Z_AXIS] }; // up
 static constexpr float Zfr_table_bw[] = { HOMING_FEEDRATE_Z / 60 };
@@ -114,12 +117,12 @@ static constexpr HeaterConfig_t Config_HeaterNozzle[] = {
         .refKd = Temperature::temp_hotend[0].pid.Kd,
         .heatbreak_fan_fnc = Fans::heat_break,
         .print_fan_fnc = Fans::print,
-        .heat_time_ms = 60000,
+        .heat_time_ms = 42000,
         .start_temp = 40,
         .undercool_temp = 37,
         .target_temp = 290,
         .heat_min_temp = 180,
-        .heat_max_temp = 230,
+        .heat_max_temp = 245,
         .heatbreak_min_temp = 10,
         .heatbreak_max_temp = 45,
         .heater_load_stable_ms = 200,

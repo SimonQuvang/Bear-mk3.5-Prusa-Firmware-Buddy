@@ -477,8 +477,8 @@
 #endif
 
 // Homing hits each endstop, retracts by these distances, then does a slower bump.
-#define X_HOME_BUMP_MM 10
-#define Y_HOME_BUMP_MM 10
+#define X_HOME_BUMP_MM 15
+#define Y_HOME_BUMP_MM 15
 #define Z_HOME_BUMP_MM 3
 #define HOMING_BUMP_DIVISOR \
     { 1, 1, 1 } // Re-Bump Speed Divisor (Divides the Homing Feedrate)
@@ -1566,20 +1566,20 @@
 
     #if AXIS_IS_TMC(X)
         #define X_CURRENT 600 // (mA) RMS current.  Custom LDO 0.9 degree steppers
-        #define X_MICROSTEPS 32 // 0..256
+        #define X_MICROSTEPS 16 // 0..256
         #define X_RSENSE 0.22
         #define X_CHAIN_POS 0
     #endif
 
     #if AXIS_IS_TMC(X2)
-        #define X2_CURRENT 800
+        #define X2_CURRENT 1000
         #define X2_MICROSTEPS 16
         #define X2_RSENSE 0.11
     #endif
 
     #if AXIS_IS_TMC(Y)
         #define Y_CURRENT 700 // (mA) RMS current.  Custom LDO 0.9 degree steppers
-        #define Y_MICROSTEPS 32
+        #define Y_MICROSTEPS 16
         #define Y_RSENSE 0.22
         #define Y_CHAIN_POS 0
     #endif
@@ -1610,7 +1610,7 @@
     #endif
 
     #if AXIS_IS_TMC(E0)
-        #define E0_CURRENT 600
+        #define E0_CURRENT 500
         #define E0_MICROSTEPS 16
         #define E0_RSENSE 0.22
         #define E0_CHAIN_POS 0
@@ -1814,8 +1814,8 @@
     #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
         // The range of stallguard sensitivities to probe and calibrate
         // (the required sensitivity varies by motor)
-        #define XY_STALL_SENSITIVITY_MIN -7
-        #define XY_STALL_SENSITIVITY_MAX -2
+        #define XY_STALL_SENSITIVITY_MIN 2
+        #define XY_STALL_SENSITIVITY_MAX 5
 
         // Read from config. May be int16 max if uncalibrated, which is
         // then handled in the Crash_s class.
