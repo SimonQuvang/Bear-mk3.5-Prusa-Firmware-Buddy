@@ -742,7 +742,7 @@
  */
 #define DEFAULT_AXIS_STEPS_PER_UNIT_E0 415 // 95% of the original 280 to account for normalised flow
 #define DEFAULT_AXIS_STEPS_PER_UNIT \
-    { 200, 200, 400, DEFAULT_AXIS_STEPS_PER_UNIT_E0 }
+    { 100, 100, 400, DEFAULT_AXIS_STEPS_PER_UNIT_E0 }
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
