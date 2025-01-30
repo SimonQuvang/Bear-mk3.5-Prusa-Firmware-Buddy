@@ -1565,7 +1565,7 @@
     #endif
 
     #if AXIS_IS_TMC(X)
-        #define X_CURRENT 600 // (mA) RMS current.  Custom LDO 0.9 degree steppers
+        #define X_CURRENT 550 // (mA) RMS current.  Custom LDO 0.9 degree steppers
         #define X_MICROSTEPS 8 // 0..256
         #define X_RSENSE 0.22
         #define X_CHAIN_POS 0
