@@ -477,8 +477,8 @@
 #endif
 
 // Homing hits each endstop, retracts by these distances, then does a slower bump.
-#define X_HOME_BUMP_MM 15
-#define Y_HOME_BUMP_MM 15
+#define X_HOME_BUMP_MM 10
+#define Y_HOME_BUMP_MM 10
 #define Z_HOME_BUMP_MM 3
 #define HOMING_BUMP_DIVISOR \
     { 1, 1, 1 } // Re-Bump Speed Divisor (Divides the Homing Feedrate)
@@ -1814,8 +1814,8 @@
     #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
         // The range of stallguard sensitivities to probe and calibrate
         // (the required sensitivity varies by motor)
-        #define XY_STALL_SENSITIVITY_MIN 2
-        #define XY_STALL_SENSITIVITY_MAX 5
+        #define XY_STALL_SENSITIVITY_MIN -7
+        #define XY_STALL_SENSITIVITY_MAX -2
 
         // Read from config. May be int16 max if uncalibrated, which is
         // then handled in the Crash_s class.
