@@ -749,13 +749,13 @@
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
 #define DEFAULT_MAX_FEEDRATE \
-    { 300, 300, 40, 45 }
+    { 400, 400, 40, 50 }
 
 /// HW limits of feed rate
 #define HWLIMIT_NORMAL_MAX_FEEDRATE \
     { 300, 300, 40, 120 }
 #define HWLIMIT_STEALTH_MAX_FEEDRATE \
-    { 160, 160, 40, 100 }
+    { 100, 100, 40, 100 }
 
 /**
  * Default Max Acceleration (change/s) change = mm/s
@@ -1165,7 +1165,7 @@
 #endif
 
 #if EITHER(MIN_SOFTWARE_ENDSTOPS, MAX_SOFTWARE_ENDSTOPS)
-//#define SOFT_ENDSTOPS_MENU_ITEM  // Enable/Disable software endstops from the LCD
+#define SOFT_ENDSTOPS_MENU_ITEM  // Enable/Disable software endstops from the LCD
 #endif
 
 /**
@@ -1421,7 +1421,7 @@
 #endif
 
 // Homing speeds (mm/m)
-#define HOMING_FEEDRATE_XY (62 * 60)
+#define HOMING_FEEDRATE_XY (30 * 60) // 30mm * 60 sec
 #define HOMING_FEEDRATE_Z (8 * 60)
 #define HOMING_FEEDRATE_INVERTED_Z (30 * 60)
 

@@ -12,7 +12,7 @@ inline constexpr float axis_home_min_diff(uint8_t axis_num) {
     if (axis_num >= 3) {
         return NAN;
     }
-    float arr[] = { -0.2, -0.2, -0.1 };
+    float arr[] = { -0.1, -0.1, -0.1 };
     return arr[axis_num];
 }
 
@@ -20,7 +20,7 @@ inline constexpr float axis_home_max_diff(uint8_t axis_num) {
     if (axis_num >= 3) {
         return NAN;
     }
-    float arr[] = { 0.2, 0.2, 0.5 };
+    float arr[] = { 0.1, 0.1, 0.5 };
     return arr[axis_num];
 }
 

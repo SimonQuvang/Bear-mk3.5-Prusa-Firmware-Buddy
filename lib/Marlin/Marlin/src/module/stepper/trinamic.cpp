@@ -157,9 +157,8 @@ enum StealthIndex : uint8_t { STEALTH_AXIS_XY, STEALTH_AXIS_Z, STEALTH_AXIS_E };
         //258 mA RMS/1phase at 60 mm/min, 332 at 600, 355 at 1000, 372 at 2000, 369 at 3000, 352 at 4000,
         //343 at 5000, 323 at 6000, 314 at 7000, 306 at 8000, 296 at 9000, 250 at 10000, 193 at 11000
 
-        // Setting it to use 400 step motors for mk3.5, should make a better solution in future
-        pwmconf.pwm_grad = motors_400_step ? 0x0C : 0x0C; //0x2E;
-        pwmconf.pwm_ampl = motors_400_step ? 0x12 : 0x12; //0x1F;
+        pwmconf.pwm_grad = motors_400_step ? 0x0C : 0x2E;
+        pwmconf.pwm_ampl = motors_400_step ? 0x12 : 0x1F;
     }
     else if ('Y' == st.axis_letter)
     {
@@ -169,10 +168,9 @@ enum StealthIndex : uint8_t { STEALTH_AXIS_XY, STEALTH_AXIS_Z, STEALTH_AXIS_E };
         //LDO 200 step (MK3.9)
         //255 mA RMS/1phase at 60 mm/min, 330mA at 600, 362 at 1000, 400 at 2000, 383 at 3000,
         //386 at 4000, 369 at 5000, 355 at 6000, 345 at 7000, 345 at 8000, 322 at 9000, 250 at 10000
-
-        // Setting it to use 400 step motors for mk3.5, should make a better solution in future
-        pwmconf.pwm_grad = motors_400_step ? 0x0D : 0x0D; //0x30;
-        pwmconf.pwm_ampl = motors_400_step ? 0x16 : 0x16; //0x1F;
+\
+        pwmconf.pwm_grad = motors_400_step ? 0x0D : 0x30;
+        pwmconf.pwm_ampl = motors_400_step ? 0x16 : 0x1F;
     }
     else if ('E' == st.axis_letter)
     {

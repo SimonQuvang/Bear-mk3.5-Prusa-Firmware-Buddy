@@ -1325,9 +1325,9 @@
         #define MIN_AUTORETRACT 0.1 // When auto-retract is on, convert E moves of this length and over
         #define MAX_AUTORETRACT 10.0 // Upper limit for auto-retract conversion
     #endif
-    #define RETRACT_LENGTH 3 // Default retract length (positive mm)
+    #define RETRACT_LENGTH 0.4 // Default retract length (positive mm)
     #define RETRACT_LENGTH_SWAP 13 // Default swap retract length (positive mm), for extruder change
-    #define RETRACT_FEEDRATE 45 // Default feedrate for retracting (mm/s)
+    #define RETRACT_FEEDRATE 30 // Default feedrate for retracting (mm/s)
     #define RETRACT_ZRAISE 0 // Default retract Z-raise (mm)
     #define RETRACT_RECOVER_LENGTH 0 // Default additional recover length (mm, added to retract length when recovering)
     #define RETRACT_RECOVER_LENGTH_SWAP 0 // Default additional swap recover length (mm, added to retract length when recovering from extruder change)
@@ -1565,7 +1565,7 @@
     #endif
 
     #if AXIS_IS_TMC(X)
-        #define X_CURRENT 550 // (mA) RMS current.  Custom LDO 0.9 degree steppers
+        #define X_CURRENT 800 // (mA) RMS current.  Custom LDO 0.9 degree steppers
         #define X_MICROSTEPS 8 // 0..256
         #define X_RSENSE 0.22
         #define X_CHAIN_POS 0
@@ -1578,7 +1578,7 @@
     #endif
 
     #if AXIS_IS_TMC(Y)
-        #define Y_CURRENT 700 // (mA) RMS current.  Custom LDO 0.9 degree steppers
+        #define Y_CURRENT 900 // (mA) RMS current.  Custom LDO 0.9 degree steppers
         #define Y_MICROSTEPS 8
         #define Y_RSENSE 0.22
         #define Y_CHAIN_POS 0
@@ -1814,19 +1814,20 @@
     #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
         // The range of stallguard sensitivities to probe and calibrate
         // (the required sensitivity varies by motor)
-        #define XY_STALL_SENSITIVITY_MIN -12
-        #define XY_STALL_SENSITIVITY_MAX -5
+        #define XY_STALL_SENSITIVITY_MIN -7
+        #define XY_STALL_SENSITIVITY_MAX -2
 
         // Read from config. May be int16 max if uncalibrated, which is
         // then handled in the Crash_s class.
-        #define X_STALL_SENSITIVITY config_store().homing_sens_x.get()
+        #define X_STALL_SENSITIVITY - 3 //config_store().homing_sens_x.get()
 
         // Read from config. May be int16 max if uncalibrated, which is
         // then handled in the Crash_s class.
-        #define Y_STALL_SENSITIVITY config_store().homing_sens_y.get()
+        #define Y_STALL_SENSITIVITY - 3//config_store().homing_sens_y.get()
 
         #define Z_STALL_SENSITIVITY 3
 
+        #define STALL_THRESHOLD_TMC2130 80
         #define STALL_THRESHOLD_TMC2209 400
 
         #define IMPROVE_HOMING_RELIABILITY
@@ -1846,7 +1847,7 @@
    * Enable M122 debugging command for TMC stepper drivers.
    * M122 S0/1 will enable continous reporting.
    */
-    //#define TMC_DEBUG
+    #define TMC_DEBUG
 
     /**
    * You can set your own advanced settings by filling in predefined functions.
@@ -2475,7 +2476,7 @@
 
     #endif
 
-//#define MMU2_DEBUG  // Write debug info to serial output
+#define MMU2_DEBUG  // Write debug info to serial output
 
 #endif // PRUSA_MMU2
 
@@ -2507,7 +2508,7 @@
 //#define PINS_DEBUGGING
 
 // Enable Marlin dev mode which adds some special commands
-//#define MARLIN_DEV_MODE
+#define MARLIN_DEV_MODE
 
 /**
  * M862.x support for print checking Q commands (P are always supported)
