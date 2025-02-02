@@ -296,7 +296,7 @@ static inline void MINDA_BROKEN_CABLE_DETECTION__END() {}
       s.max_jerk.set(XY_HOMING_JERK, XY_HOMING_JERK);
     #endif
     planner.apply_settings(s);
-    
+
     return motion_parameters;
   }
 
@@ -382,8 +382,8 @@ bool GcodeSuite::G28_no_parser(bool always_home_all, bool O, float R, bool S, bo
 
 #if PRINTER_IS_PRUSA_iX
   // Avoid tool cleaner
-  if (Y) { 
-    X = true; 
+  if (Y) {
+    X = true;
   }
 #endif
 
@@ -410,7 +410,7 @@ bool GcodeSuite::G28_no_parser(bool always_home_all, bool O, float R, bool S, bo
       sync_plan_position();
       SERIAL_ECHOLNPGM("Simulated Homing");
       report_current_position();
-      return;
+      return true;
     }
   #endif
 
@@ -806,7 +806,7 @@ bool GcodeSuite::G28_no_parser(bool always_home_all, bool O, float R, bool S, bo
 
                     // Raise the Z again to prevent crashing into the sheet
                     do_z_clearance(z_homing_height);
-                    
+
                     // Return to the XY homing position over the printbed and try rehoming z
                     if(!home_z_safely()) {
                       // Fail straight away if z homing fails, only repeat if detect_print_sheet fails
