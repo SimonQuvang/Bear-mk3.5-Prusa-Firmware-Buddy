@@ -1565,7 +1565,7 @@
     #endif
 
     #if AXIS_IS_TMC(X)
-        #define X_CURRENT 800 // (mA) RMS current.  Custom LDO 0.9 degree steppers
+        #define X_CURRENT 400 // (mA) RMS current.  Custom LDO 0.9 degree steppers
         #define X_MICROSTEPS 8 // 0..256
         #define X_RSENSE 0.22
         #define X_CHAIN_POS 0
@@ -1578,7 +1578,7 @@
     #endif
 
     #if AXIS_IS_TMC(Y)
-        #define Y_CURRENT 900 // (mA) RMS current.  Custom LDO 0.9 degree steppers
+        #define Y_CURRENT 400 // (mA) RMS current.  Custom LDO 0.9 degree steppers
         #define Y_MICROSTEPS 8
         #define Y_RSENSE 0.22
         #define Y_CHAIN_POS 0
@@ -1815,17 +1815,17 @@
         // The range of stallguard sensitivities to probe and calibrate
         // (the required sensitivity varies by motor)
         #define XY_STALL_SENSITIVITY_MIN -7
-        #define XY_STALL_SENSITIVITY_MAX -2
+        #define XY_STALL_SENSITIVITY_MAX 5
 
         // Read from config. May be int16 max if uncalibrated, which is
         // then handled in the Crash_s class.
-        #define X_STALL_SENSITIVITY 3 //config_store().homing_sens_x.get()
+        #define X_STALL_SENSITIVITY config_store().homing_sens_x.get()
 
         // Read from config. May be int16 max if uncalibrated, which is
         // then handled in the Crash_s class.
-        #define Y_STALL_SENSITIVITY 3//config_store().homing_sens_y.get()
+        #define Y_STALL_SENSITIVITY config_store().homing_sens_y.get()
 
-        #define Z_STALL_SENSITIVITY 3
+        #define Z_STALL_SENSITIVITY 4
 
         #define STALL_THRESHOLD_TMC2130 400
         #define STALL_THRESHOLD_TMC2209 400
