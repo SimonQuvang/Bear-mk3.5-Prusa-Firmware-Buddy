@@ -1819,15 +1819,15 @@
 
         // Read from config. May be int16 max if uncalibrated, which is
         // then handled in the Crash_s class.
-        #define X_STALL_SENSITIVITY - 3 //config_store().homing_sens_x.get()
+        #define X_STALL_SENSITIVITY 3 //config_store().homing_sens_x.get()
 
         // Read from config. May be int16 max if uncalibrated, which is
         // then handled in the Crash_s class.
-        #define Y_STALL_SENSITIVITY - 3//config_store().homing_sens_y.get()
+        #define Y_STALL_SENSITIVITY 3//config_store().homing_sens_y.get()
 
         #define Z_STALL_SENSITIVITY 3
 
-        #define STALL_THRESHOLD_TMC2130 80
+        #define STALL_THRESHOLD_TMC2130 400
         #define STALL_THRESHOLD_TMC2209 400
 
         #define IMPROVE_HOMING_RELIABILITY
