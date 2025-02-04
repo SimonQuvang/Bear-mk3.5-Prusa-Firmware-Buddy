@@ -1421,7 +1421,7 @@
 #endif
 
 // Homing speeds (mm/m)
-#define HOMING_FEEDRATE_XY (20 * 60) // 30mm * 60 sec
+#define HOMING_FEEDRATE_XY (40 * 60) // 30mm * 60 sec
 #define HOMING_FEEDRATE_Z (8 * 60)
 #define HOMING_FEEDRATE_INVERTED_Z (30 * 60)
 
