@@ -1814,8 +1814,8 @@
     #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
         // The range of stallguard sensitivities to probe and calibrate
         // (the required sensitivity varies by motor)
-        #define XY_STALL_SENSITIVITY_MIN -7
-        #define XY_STALL_SENSITIVITY_MAX 5
+        #define XY_STALL_SENSITIVITY_MIN -2
+        #define XY_STALL_SENSITIVITY_MAX 2
 
         // Read from config. May be int16 max if uncalibrated, which is
         // then handled in the Crash_s class.
@@ -1833,7 +1833,7 @@
         #define IMPROVE_HOMING_RELIABILITY
         #ifdef IMPROVE_HOMING_RELIABILITY
             #define XY_HOMING_ACCELERATION 1250
-            #define XY_HOMING_JERK 8
+            #define XY_HOMING_JERK 4
         #endif
     #endif
 
