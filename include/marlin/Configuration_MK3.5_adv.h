@@ -1578,7 +1578,7 @@
     #endif
 
     #if AXIS_IS_TMC(Y)
-        #define Y_CURRENT 600 // (mA) RMS current.  Custom LDO 0.9 degree steppers
+        #define Y_CURRENT 700 // (mA) RMS current.  Custom LDO 0.9 degree steppers
         #define Y_MICROSTEPS 8
         #define Y_RSENSE 0.22
         #define Y_CHAIN_POS 0
@@ -1819,11 +1819,11 @@
 
         // Read from config. May be int16 max if uncalibrated, which is
         // then handled in the Crash_s class.
-        #define X_STALL_SENSITIVITY config_store().homing_sens_x.get()
+        #define X_STALL_SENSITIVITY 0
 
         // Read from config. May be int16 max if uncalibrated, which is
         // then handled in the Crash_s class.
-        #define Y_STALL_SENSITIVITY config_store().homing_sens_y.get()
+        #define Y_STALL_SENSITIVITY 0
 
         #define Z_STALL_SENSITIVITY 4
 
