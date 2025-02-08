@@ -1578,14 +1578,14 @@
     #endif
 
     #if AXIS_IS_TMC(Y)
-        #define Y_CURRENT 700 // (mA) RMS current.  Custom LDO 0.9 degree steppers
+        #define Y_CURRENT 1000 // (mA) RMS current.  Custom LDO 0.9 degree steppers
         #define Y_MICROSTEPS 8
         #define Y_RSENSE 0.22
         #define Y_CHAIN_POS 0
     #endif
 
     #if AXIS_IS_TMC(Y2)
-        #define Y2_CURRENT 800
+        #define Y2_CURRENT 1000
         #define Y2_MICROSTEPS 16
         #define Y2_RSENSE 0.11
     #endif
@@ -1610,8 +1610,8 @@
     #endif
 
     #if AXIS_IS_TMC(E0)
-        #define E0_CURRENT 500
-        #define E0_MICROSTEPS 16
+        #define E0_CURRENT 600
+        #define E0_MICROSTEPS 32
         #define E0_RSENSE 0.22
         #define E0_CHAIN_POS 0
     #endif

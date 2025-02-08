@@ -740,7 +740,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT_E0 415 // 95% of the original 280 to account for normalised flow
+#define DEFAULT_AXIS_STEPS_PER_UNIT_E0 830 // 95% of the original 280 to account for normalised flow
 #define DEFAULT_AXIS_STEPS_PER_UNIT \
     { 100, 100, 400, DEFAULT_AXIS_STEPS_PER_UNIT_E0 }
 /**
@@ -755,7 +755,7 @@
 #define HWLIMIT_NORMAL_MAX_FEEDRATE \
     { 300, 300, 40, 120 }
 #define HWLIMIT_STEALTH_MAX_FEEDRATE \
-    { 100, 100, 40, 100 }
+    { 200, 200, 40, 100 }
 
 /**
  * Default Max Acceleration (change/s) change = mm/s
