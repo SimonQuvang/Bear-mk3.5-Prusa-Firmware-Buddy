@@ -1560,9 +1560,17 @@
     constexpr float HOLD_MULTIPLIER[4] = {1, 1, 1, 1};  // Scales down the holding current from run current
     #define INTERPOLATE true // Interpolate X/Y/Z_MICROSTEPS to 256
 
+    #if X_DRIVER_TYPE == TMC2130 && Y_DRIVER_TYPE == X_DRIVER_TYPE
+        #define HAS_TMC_WAVETABLE // enable wavetable correction for this driver/motor type
+    #endif
+
     #if AXIS_IS_TMC(X)
-        #define X_CURRENT 300 // (mA) RMS current.  MK3 motors
-        #define X_MICROSTEPS 16 // 0..256
+        #define X_CURRENT 550 // (mA) RMS current.  Custom LDO 400 step motors
+        #define X_MICROSTEPS 8 // 0..256
+        #define X_400_STEP_CURRENT 550
+        #define X_400_STEP_MICROSTEPS 8 // 0..256
+        #define X_200_STEP_CURRENT 300
+        #define X_200_STEP_MICROSTEPS 16 // 0..256
         #define X_RSENSE 0.22
         #define X_CHAIN_POS 0
     #endif
@@ -1574,8 +1582,14 @@
     #endif
 
     #if AXIS_IS_TMC(Y)
-        #define Y_CURRENT 370 // (mA) RMS current.  MK3 motors
-        #define Y_MICROSTEPS 16
+        // Use 400_STEP values as default current and microstep. For 200 step motors (MK3.9) the values will
+        // be reconfigured in runtime if the printer is configured as MK3.9 in EEPROM.
+        #define Y_CURRENT 700 // (mA) RMS current.   Custom LDO 400 step motors
+        #define Y_MICROSTEPS 8
+        #define Y_400_STEP_CURRENT 700
+        #define Y_400_STEP_MICROSTEPS 8 // 0..256
+        #define Y_200_STEP_CURRENT 370
+        #define Y_200_STEP_MICROSTEPS 16 // 0..256
         #define Y_RSENSE 0.22
         #define Y_CHAIN_POS 0
     #endif
@@ -1606,7 +1620,7 @@
     #endif
 
     #if AXIS_IS_TMC(E0)
-        #define E0_CURRENT 490
+        #define E0_CURRENT 400
         #define E0_MICROSTEPS 32
         #define E0_RSENSE 0.22
         #define E0_CHAIN_POS 0
@@ -1811,15 +1825,15 @@
         // The range of stallguard sensitivities to probe and calibrate
         // (the required sensitivity varies by motor)
         #define XY_STALL_SENSITIVITY_MIN -7
-        #define XY_STALL_SENSITIVITY_MAX -2
+        #define XY_STALL_SENSITIVITY_MAX 2
 
         // Read from config. May be int16 max if uncalibrated, which is
         // then handled in the Crash_s class.
-        #define X_STALL_SENSITIVITY config_store().homing_sens_x.get()
+        #define X_STALL_SENSITIVITY 0
 
         // Read from config. May be int16 max if uncalibrated, which is
         // then handled in the Crash_s class.
-        #define Y_STALL_SENSITIVITY config_store().homing_sens_y.get()
+        #define Y_STALL_SENSITIVITY 0
 
         #define Z_STALL_SENSITIVITY 4
 
@@ -1840,7 +1854,7 @@
    * Enable M122 debugging command for TMC stepper drivers.
    * M122 S0/1 will enable continous reporting.
    */
-    //#define TMC_DEBUG
+    #define TMC_DEBUG
 
     /**
    * You can set your own advanced settings by filling in predefined functions.

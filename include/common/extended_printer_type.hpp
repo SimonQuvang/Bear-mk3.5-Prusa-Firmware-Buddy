@@ -29,13 +29,19 @@ static constexpr std::array<bool, extended_printer_type_model.size()> extended_p
 
 #elif PRINTER_IS_PRUSA_MK3_5()
     #define HAS_EXTENDED_PRINTER_TYPE()                    1
-    #define EXTENDED_PRINTER_TYPE_DETERMINES_MOTOR_STEPS() 0
+    #define EXTENDED_PRINTER_TYPE_DETERMINES_MOTOR_STEPS() 1
 
 /// !!! Never change order, never remove items - this is used in config store
 static constexpr std::array extended_printer_type_model {
     PrinterModel::mk3_5,
     PrinterModel::mk3_5s,
 };
+
+static constexpr std::array<bool, extended_printer_type_model.size()> extended_printer_type_has_400step_motors {
+    false,  // mk3_5
+    true,   // mk3_5s
+};
+
 
 #else
     #define HAS_EXTENDED_PRINTER_TYPE() 0

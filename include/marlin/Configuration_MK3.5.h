@@ -742,7 +742,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT_E0 266 // 95% of the original 280 to account for normalised flow
+#define DEFAULT_AXIS_STEPS_PER_UNIT_E0 830 // 95% of the original 280 to account for normalised flow
 #define DEFAULT_AXIS_STEPS_PER_UNIT \
     { 100, 100, 400, DEFAULT_AXIS_STEPS_PER_UNIT_E0 }
 /**
@@ -755,7 +755,7 @@
 
 /// HW limits of feed rate
 #define HWLIMIT_NORMAL_MAX_FEEDRATE \
-    { 300, 300, 12, 120 }
+    { 300, 300, 40, 120 }
 #define HWLIMIT_STEALTH_MAX_FEEDRATE \
     { 160, 160, 40, 100 }
 
@@ -1423,9 +1423,9 @@
 #endif
 
 // Homing speeds (mm/m)
-#define HOMING_FEEDRATE_XY (70 * 60)
+#define HOMING_FEEDRATE_XY (40 * 60)
 #define HOMING_FEEDRATE_Z (8 * 60)
-#define HOMING_FEEDRATE_INVERTED_Z (30 * 60)
+#define HOMING_FEEDRATE_INVERTED_Z (60 * 60)
 
 // Validate that endstops are triggered on homing moves
 //#define VALIDATE_HOMING_ENDSTOPS

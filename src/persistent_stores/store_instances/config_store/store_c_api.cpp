@@ -249,7 +249,7 @@ bool get_has_400step_xy_motors() {
 #elif PRINTER_IS_PRUSA_XL_DEV_KIT()
     return false;
 #elif PRINTER_IS_PRUSA_MK3_5()
-    return false;
+    return extended_printer_type_has_400step_motors[config_store().extended_printer_type.get()];
 #elif PRINTER_IS_PRUSA_COREONE()
     return true;
 #else
