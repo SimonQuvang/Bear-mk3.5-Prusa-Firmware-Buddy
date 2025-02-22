@@ -20,9 +20,9 @@ namespace MMU2 {
 // MK3.5 underextrudes by default to match mk3's behaviour,
 // that doesn't play nicely with the absolute move distances of the MMU
 // -> need to compensate for the slight discrepancy.
-static constexpr float eStepsMultiplier = 1.0F; // Bear Mk3.5 does not underextrude by default
-else
-#elsestatic constexpr float eStepsMultiplier = 1.0F;
+static constexpr float eStepsMultiplier = 1.0F; // Bear MK3.5 does not underextrude by default so changed the multiplier back to 1.0f 
+#else
+static constexpr float eStepsMultiplier = 1.0F;
 #endif
 
 void extruder_move(float distance, float feed_rate) {
