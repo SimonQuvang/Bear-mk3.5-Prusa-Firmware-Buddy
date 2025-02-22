@@ -744,7 +744,7 @@
  */
 #define DEFAULT_AXIS_STEPS_PER_UNIT_E0 830 // 95% of the original 280 to account for normalised flow
 #define DEFAULT_AXIS_STEPS_PER_UNIT \
-    { 100, 100, 400, DEFAULT_AXIS_STEPS_PER_UNIT_E0 }
+    { 80, 100, 400, DEFAULT_AXIS_STEPS_PER_UNIT_E0 }
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
@@ -1091,7 +1091,7 @@
 // Direction of endstops when homing; 1=MAX, -1=MIN
 // :[-1,1]
 #define X_HOME_DIR -1
-#define Y_HOME_DIR -1
+#define Y_HOME_DIR 1
 #define Z_HOME_DIR -1
 
 // @section machine
