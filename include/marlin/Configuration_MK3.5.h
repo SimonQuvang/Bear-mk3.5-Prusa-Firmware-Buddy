@@ -742,7 +742,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT_E0 830 // 95% of the original 280 to account for normalised flow
+#define DEFAULT_AXIS_STEPS_PER_UNIT_E0 788 // 95% of the original 280 to account for normalised flow
 #define DEFAULT_AXIS_STEPS_PER_UNIT \
     { 80, 100, 400, DEFAULT_AXIS_STEPS_PER_UNIT_E0 }
 /**
