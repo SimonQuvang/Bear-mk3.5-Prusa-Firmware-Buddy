@@ -1557,7 +1557,7 @@
  */
 #if HAS_TRINAMIC
 
-    constexpr float HOLD_MULTIPLIER[4] = {0.5, 0.5, 1, 0.5};  // Scales down the holding current from run current
+    constexpr float HOLD_MULTIPLIER[4] = {1, 1, 1, 1};  // Scales down the holding current from run current
     #define INTERPOLATE true // Interpolate X/Y/Z_MICROSTEPS to 256
 
     #if X_DRIVER_TYPE == TMC2130 && Y_DRIVER_TYPE == X_DRIVER_TYPE
