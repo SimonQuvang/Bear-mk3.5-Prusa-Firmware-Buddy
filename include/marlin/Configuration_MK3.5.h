@@ -374,7 +374,7 @@
  *
  * :{ '0': "Not used", '1':"100k / 4.7k - EPCOS", '2':"200k / 4.7k - ATC Semitec 204GT-2", '3':"Mendel-parts / 4.7k", '4':"10k !! do not use for a hotend. Bad resolution at high temp. !!", '5':"100K / 4.7k - ATC Semitec 104GT-2 (Used in ParCan & J-Head)", '501':"100K Zonestar (Tronxy X3A)", '6':"100k / 4.7k EPCOS - Not as accurate as Table 1", '7':"100k / 4.7k Honeywell 135-104LAG-J01", '8':"100k / 4.7k 0603 SMD Vishay NTCS0603E3104FXT", '9':"100k / 4.7k GE Sensing AL03006-58.2K-97-G1", '10':"100k / 4.7k RS 198-961", '11':"100k / 4.7k beta 3950 1%", '12':"100k / 4.7k 0603 SMD Vishay NTCS0603E3104FXT (calibrated for Makibox hot bed)", '13':"100k Hisens 3950  1% up to 300°C for hotend 'Simple ONE ' & hotend 'All In ONE'", '20':"PT100 (Ultimainboard V2.x)", '51':"100k / 1k - EPCOS", '52':"200k / 1k - ATC Semitec 204GT-2", '55':"100k / 1k - ATC Semitec 104GT-2 (Used in ParCan & J-Head)", '60':"100k Maker's Tool Works Kapton Bed Thermistor beta=3950", '61':"100k Formbot / Vivedino 3950 350C thermistor 4.7k pullup", '66':"Dyze Design 4.7M High Temperature thermistor", '67':"Slice Engineering 450C High Temperature thermistor", '70':"the 100K thermistor found in the bq Hephestos 2", '71':"100k / 4.7k Honeywell 135-104LAF-J01", '147':"Pt100 / 4.7k", '1047':"Pt1000 / 4.7k", '110':"Pt100 / 1k (non-standard)", '1010':"Pt1000 / 1k (non standard)", '-4':"Thermocouple + AD8495", '-3':"Thermocouple + MAX31855 (only for sensor 0)", '-2':"Thermocouple + MAX6675 (only for sensor 0)", '-1':"Thermocouple + AD595",'998':"Dummy 1", '999':"Dummy 2", '2000':"100k / 4k7" }
  */
-#define TEMP_SENSOR_0 55
+#define TEMP_SENSOR_0 5
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
@@ -448,8 +448,8 @@
 #define PID_MAX BANG_MAX // Limits current to nozzle while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
 #define PID_K1 0.95 // Smoothing factor within any PID loop
 #if ENABLED(PIDTEMP)
-    //#define PID_EDIT_MENU         // Add PID editing to the "Advanced Settings" menu. (~700 bytes of PROGMEM)
-    //#define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of PROGMEM)
+    #define PID_EDIT_MENU         // Add PID editing to the "Advanced Settings" menu. (~700 bytes of PROGMEM)
+    #define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of PROGMEM)
     //#define PID_DEBUG             // Sends debug data to the serial port.
     //#define PID_OPENLOOP 1        // Puts PID in open loop. M104/M140 sets the output power from 0 to PID_MAX
     //#define SLOW_PWM_HEATERS      // PWM with very low frequency (roughly 0.125Hz=8s) and minimum state time of approximately 1s useful for heaters driven by a relay
@@ -463,9 +463,9 @@
     #define PID_FUNCTIONAL_RANGE 500
 
     // RING
-    #define DEFAULT_Kp 15.00
-    #define DEFAULT_Ki 1.00
-    #define DEFAULT_Kd 56.00
+    #define DEFAULT_Kp 20.00
+    #define DEFAULT_Ki 3.85
+    #define DEFAULT_Kd 26.00
 
     //#define STEADY_STATE_HOTEND // Enable support for STEADY_STATE_HOTEND (feed-forward thermal management)
     #define STEADY_STATE_HOTEND_LINEAR_COOLING_TERM 0.322
@@ -519,9 +519,9 @@
     //#define DEFAULT_bedKd 1675.16
 
     //24V Prusa MK3 bed
-    #define DEFAULT_bedKp 126.13
-    #define DEFAULT_bedKi 4.30
-    #define DEFAULT_bedKd 924.76
+    #define DEFAULT_bedKp 144.46
+    #define DEFAULT_bedKi 28.21
+    #define DEFAULT_bedKd 493.12
 
 // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -742,7 +742,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT_E0 830 // 95% of the original 280 to account for normalised flow
+#define DEFAULT_AXIS_STEPS_PER_UNIT_E0 788 // 95% of the original 280 to account for normalised flow
 #define DEFAULT_AXIS_STEPS_PER_UNIT \
     { 80, 100, 400, DEFAULT_AXIS_STEPS_PER_UNIT_E0 }
 /**
@@ -808,7 +808,7 @@
     #define DEFAULT_ZJERK 2.0
 #endif
 
-#define DEFAULT_EJERK 5 // May be used by Linear Advance
+#define DEFAULT_EJERK 2 // May be used by Linear Advance
 
 /// HW limits of Jerk
 #define HWLIMIT_NORMAL_JERK { 10, 10, 2, 10 }

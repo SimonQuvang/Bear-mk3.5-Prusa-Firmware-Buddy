@@ -1381,8 +1381,8 @@
 #if ENABLED(ADVANCED_PAUSE_FEATURE)
     #define FILAMENT_UNLOAD_RAMMING_SEQUENCE \
             { \
-                { 20, 1500 }, \
-                { -50, 2700 }, \
+                { 10, 1500 }, \
+                { -30, 2700 }, \
                 { -5, 50 }, \
                 { -50, 1500 }, \
             }
@@ -1390,17 +1390,17 @@
     #define FILAMENT_RUNOUT_RAMMING_SEQUENCE \
            { \
                 { 7, 1500 }, \
-                { -50, 2700 }, \
+                { -30, 2700 }, \
                 { -5, 50 }, \
                 { -50, 1500 }, \
             }
 
     #define FILAMENT_MMU2_RAMMING_SEQUENCE \
         { \
-            { 20, 1500 / 60.F}, \
-            { -50, 2700 / 60.F}, \
+            { 10, 1500 / 60.F}, \
+            { -30, 2700 / 60.F}, \
             { -5, 50 / 60.F}, \
-            { -50, 1500 / 60.F}, \
+            { -30, 1500 / 60.F}, \
         }
 
     #define PAUSE_PARK_RETRACT_FEEDRATE 10.8 // (mm/s) Initial retract feedrate.
@@ -1408,7 +1408,7 @@
         // This short retract is done immediately, before parking the nozzle.
     #define FILAMENT_CHANGE_UNLOAD_FEEDRATE 27 // (mm/s) Unload filament feedrate. This can be pretty fast.
     #define FILAMENT_CHANGE_UNLOAD_ACCEL 1100 // (mm/s^2) Lower acceleration may allow a faster feedrate.
-    #define FILAMENT_CHANGE_UNLOAD_LENGTH 105 // (mm) The length of filament for a complete unload.
+    #define FILAMENT_CHANGE_UNLOAD_LENGTH 80 // (mm) The length of filament for a complete unload.
         //   For Bowden, the full length of the tube and nozzle.
         //   For direct drive, the full length of the nozzle.
         //   Set to 0 for manual unloading.
@@ -1417,24 +1417,24 @@
         // 0 to disable start loading and skip to fast load only
     #define FILAMENT_CHANGE_FAST_LOAD_FEEDRATE 18 // (mm/s) Load filament feedrate. This can be pretty fast. //40
     #define FILAMENT_CHANGE_FAST_LOAD_ACCEL 100 // (mm/s^2) Lower acceleration may allow a faster feedrate.  //200
-    #define FILAMENT_CHANGE_FAST_LOAD_LENGTH 50 // (mm) Load length of filament, from extruder gear to nozzle. //75
+    #define FILAMENT_CHANGE_FAST_LOAD_LENGTH 77 // (mm) Load length of filament, from extruder gear to nozzle. //75
         //   For Bowden, the full length of the tube and nozzle.
         //   For direct drive, the full length of the nozzle.
     //#define ADVANCED_PAUSE_CONTINUOUS_PURGE       // Purge continuously up to the purge length until interrupted.
     #define ADVANCED_PAUSE_PURGE_FEEDRATE 2.7 // (mm/s) Extrude feedrate (after loading). Should be slower than load feedrate.
-    #define ADVANCED_PAUSE_PURGE_LENGTH 21 // (mm) Length to extrude after loading. //50
+    #define ADVANCED_PAUSE_PURGE_LENGTH 15 // (mm) Length to extrude after loading. //50
         //   Set to 0 for manual extrusion.
         //   Filament can be extruded repeatedly from the Filament Change menu
         //   until extrusion is consistent, and to purge old filament.
     #define ADVANCED_PAUSE_RESUME_PRIME 0 // (mm) Extra distance to prime nozzle after returning from park.
 
 // Filament Unload does a Retract, Delay, and Purge first:
-    #define FILAMENT_UNLOAD_RETRACT_LENGTH 0 // (mm) Unload initial retract length.
+    #define FILAMENT_UNLOAD_RETRACT_LENGTH 1 // (mm) Unload initial retract length.
     #define FILAMENT_UNLOAD_DELAY 0 // (ms) Delay for the filament to cool after retract.
     #define FILAMENT_UNLOAD_PURGE_LENGTH 15 // (mm) An unretract is done, then this length is purged.
     #define FILAMENT_UNLOAD_PURGE_FEEDRATE 24 // (mm/s)
 	#define FILAMENT_UNLOAD_PHASE1_LENGHT       20  // (mm)fast phase
-	#define FILAMENT_UNLOAD_PHASE2_LENGHT       30  // (mm)slow phase
+	#define FILAMENT_UNLOAD_PHASE2_LENGHT       15  // (mm)slow phase
 
     #define PAUSE_PARK_NOZZLE_TIMEOUT 45 // (seconds) Time limit before the nozzle is turned off for safety.
     #define FILAMENT_CHANGE_ALERT_BEEPS 10 // Number of alert beeps to play when a response is needed.
@@ -1620,7 +1620,7 @@
     #endif
 
     #if AXIS_IS_TMC(E0)
-        #define E0_CURRENT 300
+        #define E0_CURRENT 500
         #define E0_MICROSTEPS 32
         #define E0_RSENSE 0.22
         #define E0_CHAIN_POS 0
@@ -1747,8 +1747,8 @@
 
     #define X_HYBRID_THRESHOLD 1000 // [mm/s]
     #define Y_HYBRID_THRESHOLD 1000
-    #define Z_HYBRID_THRESHOLD 1
-    #define E0_HYBRID_THRESHOLD 7
+    #define Z_HYBRID_THRESHOLD 1000
+    #define E0_HYBRID_THRESHOLD 700
 
 /**
  * Provides crash detection during printing and proper crash recovery.
@@ -1824,7 +1824,7 @@
     #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
         // The range of stallguard sensitivities to probe and calibrate
         // (the required sensitivity varies by motor)
-        #define XY_STALL_SENSITIVITY_MIN -2
+        #define XY_STALL_SENSITIVITY_MIN -7
         #define XY_STALL_SENSITIVITY_MAX 2
 
         // Read from config. May be int16 max if uncalibrated, which is
