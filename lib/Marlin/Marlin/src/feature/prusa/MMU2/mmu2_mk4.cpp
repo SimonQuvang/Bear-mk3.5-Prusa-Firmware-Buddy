@@ -1465,7 +1465,7 @@ void MMU2::OnMMUProgressMsgChanged(ProgressCode pc) {
 
 void __attribute__((noinline)) MMU2::HelpUnloadToFinda() {
     extruder_move(-MMU2_RETRY_UNLOAD_TO_FINDA_LENGTH, MMU2_RETRY_UNLOAD_TO_FINDA_FEED_RATE);
-
+}
 
 void MMU2::OnMMUProgressMsgSame(ProgressCode pc) {
     switch (pc) {
