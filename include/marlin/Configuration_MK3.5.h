@@ -449,8 +449,8 @@
  * MPCTEMP : Predictive Model temperature control. (~1.8K without auto-tune)
  */
 
-//#define PIDTEMP // See the PID Tuning Guide at https://reprap.org/wiki/PID_Tuning
-#define MPCTEMP         // See https://marlinfw.org/docs/features/model_predictive_control.html
+#define PIDTEMP // See the PID Tuning Guide at https://reprap.org/wiki/PID_Tuning
+//#define MPCTEMP         // See https://marlinfw.org/docs/features/model_predictive_control.html
 
 
 #define BANG_MAX 255 // Limits current to nozzle while in bang-bang mode; 255=full current
@@ -472,7 +472,7 @@
     #define PID_FUNCTIONAL_RANGE 500
 
     // RING
-    #define DEFAULT_Kp 20.00
+    #define DEFAULT_Kp 15.00
     #define DEFAULT_Ki 3.85
     #define DEFAULT_Kd 26.00
 
@@ -585,8 +585,6 @@
     #define DEFAULT_bedKi 28.21
     #define DEFAULT_bedKd 493.12
 
-    #define PID_FUNCTIONAL_RANGE 500
-    #define HW_PWM_HEATERS          // PWM with hardware PWM output
 
 // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
