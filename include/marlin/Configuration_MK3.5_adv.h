@@ -1698,7 +1698,7 @@
    * Use Trinamic's ultra quiet stepping mode.
    * When disabled, Marlin will use spreadCycle stepping mode.
    */
-    //#define STEALTHCHOP_Z
+    #define STEALTHCHOP_Z
 
     /**
    * Optimize spreadCycle chopper parameters by using predefined parameter sets
@@ -1743,12 +1743,12 @@
    * STEALTHCHOP_(XY|Z|E) must be enabled to use HYBRID_THRESHOLD.
    * M913 X/Y/Z/E to live tune the setting
    */
-//#define HYBRID_THRESHOLD
+#define HYBRID_THRESHOLD
 
-    //#define X_HYBRID_THRESHOLD 1000 // [mm/s]
-    //#define Y_HYBRID_THRESHOLD 1000
-    //#define Z_HYBRID_THRESHOLD 1000
-    //#define E0_HYBRID_THRESHOLD 700
+    #define X_HYBRID_THRESHOLD 1000 // [mm/s]
+    #define Y_HYBRID_THRESHOLD 1000
+    #define Z_HYBRID_THRESHOLD 1000
+    #define E0_HYBRID_THRESHOLD 700
 
 /**
  * Provides crash detection during printing and proper crash recovery.
