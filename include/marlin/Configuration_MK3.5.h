@@ -805,9 +805,9 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT_E0 3152 // 95% of the original 280 to account for normalised flow
+#define DEFAULT_AXIS_STEPS_PER_UNIT_E0 788 // 95% of the original 280 to account for normalised flow
 #define DEFAULT_AXIS_STEPS_PER_UNIT \
-    { 1600, 1600, 3200, DEFAULT_AXIS_STEPS_PER_UNIT_E0 }
+    { 200, 200, 400, DEFAULT_AXIS_STEPS_PER_UNIT_E0 }
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
