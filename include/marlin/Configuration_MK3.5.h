@@ -585,6 +585,9 @@
     #define DEFAULT_bedKi 28.21
     #define DEFAULT_bedKd 493.12
 
+    #define PID_FUNCTIONAL_RANGE 500
+    #define HW_PWM_HEATERS          // PWM with hardware PWM output
+
 // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
 
