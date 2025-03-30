@@ -35,7 +35,7 @@
  * Basic settings can be found in Configuration.h
  *
  */
-#define CONFIGURATION_ADV_H_VERSION 020000
+#define CONFIGURATION_ADV_H_VERSION 02010200
 
 /**
  * Cancel Objects
@@ -1558,19 +1558,19 @@
 #if HAS_TRINAMIC
 
     constexpr float HOLD_MULTIPLIER[4] = {1, 1, 1, 1};  // Scales down the holding current from run current
-    #define INTERPOLATE true // Interpolate X/Y/Z_MICROSTEPS to 256
+    #define INTERPOLATE false // Interpolate X/Y/Z_MICROSTEPS to 256
 
     #if X_DRIVER_TYPE == TMC2130 && Y_DRIVER_TYPE == X_DRIVER_TYPE
         #define HAS_TMC_WAVETABLE // enable wavetable correction for this driver/motor type
     #endif
 
     #if AXIS_IS_TMC(X)
-        #define X_CURRENT 1000 // (mA) RMS current.  Custom LDO 400 step motors
-        #define X_MICROSTEPS 8 // 0..256
-        #define X_400_STEP_CURRENT 1000
-        #define X_400_STEP_MICROSTEPS 8 // 0..256
-        #define X_200_STEP_CURRENT 1000
-        #define X_200_STEP_MICROSTEPS 8 // 0..256
+        #define X_CURRENT 1200 // (mA) RMS current.  Custom LDO 400 step motors
+        #define X_MICROSTEPS 128 // 0..256
+        #define X_400_STEP_CURRENT 1200
+        #define X_400_STEP_MICROSTEPS 128 // 0..256
+        #define X_200_STEP_CURRENT 1200
+        #define X_200_STEP_MICROSTEPS 128 // 0..256
         #define X_RSENSE 0.22
         #define X_CHAIN_POS 0
     #endif
@@ -1585,11 +1585,11 @@
         // Use 400_STEP values as default current and microstep. For 200 step motors (MK3.9) the values will
         // be reconfigured in runtime if the printer is configured as MK3.9 in EEPROM.
         #define Y_CURRENT 1000 // (mA) RMS current.   Custom LDO 400 step motors
-        #define Y_MICROSTEPS 8
-        #define Y_400_STEP_CURRENT 1000
-        #define Y_400_STEP_MICROSTEPS 8 // 0..256
-        #define Y_200_STEP_CURRENT 1000
-        #define Y_200_STEP_MICROSTEPS 8 // 0..256
+        #define Y_MICROSTEPS 128
+        #define Y_400_STEP_CURRENT 1200
+        #define Y_400_STEP_MICROSTEPS 128 // 0..256
+        #define Y_200_STEP_CURRENT 1200
+        #define Y_200_STEP_MICROSTEPS 128 // 0..256
         #define Y_RSENSE 0.22
         #define Y_CHAIN_POS 0
     #endif
@@ -1602,7 +1602,7 @@
 
     #if AXIS_IS_TMC(Z)
         #define Z_CURRENT 600
-        #define Z_MICROSTEPS 16
+        #define Z_MICROSTEPS 128
         #define Z_RSENSE 0.22
         #define Z_CHAIN_POS 0
     #endif
@@ -1621,7 +1621,7 @@
 
     #if AXIS_IS_TMC(E0)
         #define E0_CURRENT 500
-        #define E0_MICROSTEPS 32
+        #define E0_MICROSTEPS 128
         #define E0_RSENSE 0.22
         #define E0_CHAIN_POS 0
     #endif
@@ -1698,7 +1698,7 @@
    * Use Trinamic's ultra quiet stepping mode.
    * When disabled, Marlin will use spreadCycle stepping mode.
    */
-    #define STEALTHCHOP_Z
+    //#define STEALTHCHOP_Z
 
     /**
    * Optimize spreadCycle chopper parameters by using predefined parameter sets
@@ -1756,7 +1756,7 @@
  */
 #define CRASH_RECOVERY
 #ifdef CRASH_RECOVERY
-    #define CRASH_STALL_GUARD { 2, 2 }    // internal value representing sensitivity
+    #define CRASH_STALL_GUARD { 0, 0 }    // internal value representing sensitivity
     #define CRASH_MAX_PERIOD { 210, 210 } // (steps per tick) - reciprocal value of minimal speed
     #define CRASH_FILTER (false)          // Stallguard filtering for crash detection
     #define CRASH_TIMER 45                // seconds before counter reset
@@ -1824,8 +1824,8 @@
     #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
         // The range of stallguard sensitivities to probe and calibrate
         // (the required sensitivity varies by motor)
-        #define XY_STALL_SENSITIVITY_MIN -7
-        #define XY_STALL_SENSITIVITY_MAX 2
+        #define XY_STALL_SENSITIVITY_MIN -5
+        #define XY_STALL_SENSITIVITY_MAX 4
 
         // Read from config. May be int16 max if uncalibrated, which is
         // then handled in the Crash_s class.
