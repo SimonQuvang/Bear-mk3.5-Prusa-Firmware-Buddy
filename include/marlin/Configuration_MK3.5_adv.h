@@ -1565,11 +1565,11 @@
     #endif
 
     #if AXIS_IS_TMC(X)
-        #define X_CURRENT 1200 // (mA) RMS current.  Custom LDO 400 step motors
+        #define X_CURRENT 800 // (mA) RMS current.  Custom LDO 400 step motors
         #define X_MICROSTEPS 16 // 0..256
-        #define X_400_STEP_CURRENT 1200
+        #define X_400_STEP_CURRENT 800
         #define X_400_STEP_MICROSTEPS 16 // 0..256
-        #define X_200_STEP_CURRENT 1200
+        #define X_200_STEP_CURRENT 800
         #define X_200_STEP_MICROSTEPS 16 // 0..256
         #define X_RSENSE 0.22
         #define X_CHAIN_POS 0
@@ -1584,11 +1584,11 @@
     #if AXIS_IS_TMC(Y)
         // Use 400_STEP values as default current and microstep. For 200 step motors (MK3.9) the values will
         // be reconfigured in runtime if the printer is configured as MK3.9 in EEPROM.
-        #define Y_CURRENT 1200 // (mA) RMS current.   Custom LDO 400 step motors
+        #define Y_CURRENT 800 // (mA) RMS current.   Custom LDO 400 step motors
         #define Y_MICROSTEPS 16
-        #define Y_400_STEP_CURRENT 1200
+        #define Y_400_STEP_CURRENT 800
         #define Y_400_STEP_MICROSTEPS 16 // 0..256
-        #define Y_200_STEP_CURRENT 1200
+        #define Y_200_STEP_CURRENT 800
         #define Y_200_STEP_MICROSTEPS 16 // 0..256
         #define Y_RSENSE 0.22
         #define Y_CHAIN_POS 0
@@ -1601,8 +1601,8 @@
     #endif
 
     #if AXIS_IS_TMC(Z)
-        #define Z_CURRENT 800
-        #define Z_MICROSTEPS 64
+        #define Z_CURRENT 600
+        #define Z_MICROSTEPS 16
         #define Z_RSENSE 0.22
         #define Z_CHAIN_POS 0
     #endif
@@ -1620,7 +1620,7 @@
     #endif
 
     #if AXIS_IS_TMC(E0)
-        #define E0_CURRENT 450
+        #define E0_CURRENT 550
         #define E0_MICROSTEPS 32
         #define E0_RSENSE 0.22
         #define E0_CHAIN_POS 0

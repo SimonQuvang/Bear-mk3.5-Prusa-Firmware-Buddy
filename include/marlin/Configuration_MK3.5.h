@@ -805,7 +805,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT_E0 788 // 95% of the original 280 to account for normalised flow
+#define DEFAULT_AXIS_STEPS_PER_UNIT_E0 788 // 95% of the original 830 to account for normalised flow
 #define DEFAULT_AXIS_STEPS_PER_UNIT \
     { 200, 200, 400, DEFAULT_AXIS_STEPS_PER_UNIT_E0 }
 /**
@@ -846,8 +846,8 @@
  *   M204 T    Travel Acceleration
  */
 #define DEFAULT_ACCELERATION 1250 // X, Y, Z and E acceleration for printing moves
-#define DEFAULT_RETRACT_ACCELERATION 1250 // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION 1250 // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_RETRACT_ACCELERATION 800 // E acceleration for retracts
+#define DEFAULT_TRAVEL_ACCELERATION 2000 // X, Y, Z acceleration for travel (non printing) moves
 
 //
 // Use Junction Deviation instead of traditional Jerk Limiting
@@ -1488,7 +1488,7 @@
 // Homing speeds (mm/m)
 #define HOMING_FEEDRATE_XY (40 * 60)
 #define HOMING_FEEDRATE_Z (8 * 60)
-#define HOMING_FEEDRATE_INVERTED_Z (60 * 60)
+#define HOMING_FEEDRATE_INVERTED_Z (50 * 60)
 
 // Validate that endstops are triggered on homing moves
 //#define VALIDATE_HOMING_ENDSTOPS

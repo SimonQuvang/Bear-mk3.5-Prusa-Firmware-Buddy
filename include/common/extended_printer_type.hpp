@@ -39,7 +39,7 @@ static constexpr std::array extended_printer_type_model {
 
 static constexpr std::array<bool, extended_printer_type_model.size()> extended_printer_type_has_400step_motors {
     true,  // mk3_5
-    true,   // mk3_5s
+    false,   // mk3_5s
 };
 
 
