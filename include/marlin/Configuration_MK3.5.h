@@ -805,9 +805,9 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT_E0 788 // 95% of the original 830 to account for normalised flow
+#define DEFAULT_AXIS_STEPS_PER_UNIT_E0 105 // 95% of the original 830 to account for normalised flow
 #define DEFAULT_AXIS_STEPS_PER_UNIT \
-    { 200, 200, 400, DEFAULT_AXIS_STEPS_PER_UNIT_E0 }
+    { 50, 50, 200, DEFAULT_AXIS_STEPS_PER_UNIT_E0 }
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
@@ -845,9 +845,9 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION 1250 // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_ACCELERATION 1000 // X, Y, Z and E acceleration for printing moves
 #define DEFAULT_RETRACT_ACCELERATION 800 // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION 2000 // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_TRAVEL_ACCELERATION 1500 // X, Y, Z acceleration for travel (non printing) moves
 
 //
 // Use Junction Deviation instead of traditional Jerk Limiting
@@ -866,8 +866,8 @@
  * value set here, it may happen instantaneously.
  */
 #if ENABLED(CLASSIC_JERK)
-    #define DEFAULT_XJERK 8.0
-    #define DEFAULT_YJERK 8.0
+    #define DEFAULT_XJERK 6.0
+    #define DEFAULT_YJERK 6.0
     #define DEFAULT_ZJERK 2.0
 #endif
 
@@ -1010,10 +1010,10 @@
 #define MIN_PROBE_EDGE 0
 
 // X and Y axis travel speed (mm/m) to get to the first probe location
-#define XY_PROBE_SPEED_INITIAL 8000
+#define XY_PROBE_SPEED_INITIAL 6000
 
 // X and Y axis travel speed (mm/m) between probes
-#define XY_PROBE_SPEED  18000
+#define XY_PROBE_SPEED  12000
 
 // Feedrate (mm/m) for the first approach when double-probing (MULTIPLE_PROBING == 2)
 #define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
@@ -1027,7 +1027,7 @@
 // The number of probes to perform at each point.
 //   Set to 2 for a fast/slow probe, using the second probe result.
 //   Set to 3 or more for slow probes, averaging the results.
-#define MULTIPLE_PROBING 2
+#define MULTIPLE_PROBING 3
 
 // Extra probing  for loadcell to remove out of bounds measured values caused by external non interesting things
 #define EXTRA_PROBING 1
@@ -1486,7 +1486,7 @@
 #endif
 
 // Homing speeds (mm/m)
-#define HOMING_FEEDRATE_XY (40 * 60)
+#define HOMING_FEEDRATE_XY (50 * 60)
 #define HOMING_FEEDRATE_Z (8 * 60)
 #define HOMING_FEEDRATE_INVERTED_Z (50 * 60)
 
