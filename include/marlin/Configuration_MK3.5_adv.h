@@ -1566,11 +1566,11 @@
 
     #if AXIS_IS_TMC(X)
         #define X_CURRENT 900 // (mA) RMS current.  Custom LDO 400 step motors
-        #define X_MICROSTEPS 4 // 0..256
+        #define X_MICROSTEPS 8 // 0..256
         #define X_400_STEP_CURRENT 900
-        #define X_400_STEP_MICROSTEPS 4 // 0..256
+        #define X_400_STEP_MICROSTEPS 8 // 0..256
         #define X_200_STEP_CURRENT 900
-        #define X_200_STEP_MICROSTEPS 4 // 0..256
+        #define X_200_STEP_MICROSTEPS 8 // 0..256
         #define X_RSENSE 0.22
         #define X_CHAIN_POS 0
     #endif
@@ -1585,11 +1585,11 @@
         // Use 400_STEP values as default current and microstep. For 200 step motors (MK3.9) the values will
         // be reconfigured in runtime if the printer is configured as MK3.9 in EEPROM.
         #define Y_CURRENT 900 // (mA) RMS current.   Custom LDO 400 step motors
-        #define Y_MICROSTEPS 4
+        #define Y_MICROSTEPS 8
         #define Y_400_STEP_CURRENT 900
-        #define Y_400_STEP_MICROSTEPS 4 // 0..256
+        #define Y_400_STEP_MICROSTEPS 8 // 0..256
         #define Y_200_STEP_CURRENT 900
-        #define Y_200_STEP_MICROSTEPS 4 // 0..256
+        #define Y_200_STEP_MICROSTEPS 8 // 0..256
         #define Y_RSENSE 0.22
         #define Y_CHAIN_POS 0
     #endif
@@ -1602,7 +1602,7 @@
 
     #if AXIS_IS_TMC(Z)
         #define Z_CURRENT 600
-        #define Z_MICROSTEPS 8
+        #define Z_MICROSTEPS 16
         #define Z_RSENSE 0.22
         #define Z_CHAIN_POS 0
     #endif
@@ -1621,7 +1621,7 @@
 
     #if AXIS_IS_TMC(E0)
         #define E0_CURRENT 500
-        #define E0_MICROSTEPS 8
+        #define E0_MICROSTEPS 16
         #define E0_RSENSE 0.22
         #define E0_CHAIN_POS 0
     #endif
@@ -1756,7 +1756,7 @@
  */
 #define CRASH_RECOVERY
 #ifdef CRASH_RECOVERY
-    #define CRASH_STALL_GUARD { 0, 0 }    // internal value representing sensitivity
+    #define CRASH_STALL_GUARD { 7, 7 }    // internal value representing sensitivity
     #define CRASH_MAX_PERIOD { 210, 210 } // (steps per tick) - reciprocal value of minimal speed
     #define CRASH_FILTER (false)          // Stallguard filtering for crash detection
     #define CRASH_TIMER 45                // seconds before counter reset
@@ -1824,26 +1824,26 @@
     #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
         // The range of stallguard sensitivities to probe and calibrate
         // (the required sensitivity varies by motor)
-        #define XY_STALL_SENSITIVITY_MIN -5
-        #define XY_STALL_SENSITIVITY_MAX 4
+        #define XY_STALL_SENSITIVITY_MIN -8
+        #define XY_STALL_SENSITIVITY_MAX 8
 
         // Read from config. May be int16 max if uncalibrated, which is
         // then handled in the Crash_s class.
-        #define X_STALL_SENSITIVITY 0
+        #define X_STALL_SENSITIVITY 2
 
         // Read from config. May be int16 max if uncalibrated, which is
         // then handled in the Crash_s class.
-        #define Y_STALL_SENSITIVITY 0
+        #define Y_STALL_SENSITIVITY 2
 
         #define Z_STALL_SENSITIVITY 4
 
-        #define STALL_THRESHOLD_TMC2130 400
+        #define STALL_THRESHOLD_TMC2130 200
         #define STALL_THRESHOLD_TMC2209 400
 
         #define IMPROVE_HOMING_RELIABILITY
         #ifdef IMPROVE_HOMING_RELIABILITY
-            #define XY_HOMING_ACCELERATION 1250
-            #define XY_HOMING_JERK 8
+            #define XY_HOMING_ACCELERATION 800
+            #define XY_HOMING_JERK 6
         #endif
     #endif
 

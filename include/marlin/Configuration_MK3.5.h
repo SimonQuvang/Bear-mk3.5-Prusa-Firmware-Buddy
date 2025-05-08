@@ -805,20 +805,20 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT_E0 105 // 95% of the original 830 to account for normalised flow
+#define DEFAULT_AXIS_STEPS_PER_UNIT_E0 400 // 95% of the original 830 to account for normalised flow
 #define DEFAULT_AXIS_STEPS_PER_UNIT \
-    { 50, 50, 200, DEFAULT_AXIS_STEPS_PER_UNIT_E0 }
+    { 100, 100, 400, DEFAULT_AXIS_STEPS_PER_UNIT_E0 }
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
 #define DEFAULT_MAX_FEEDRATE \
-    { 300, 300, 40, 45 }
+    { 150, 150, 20, 20 }
 
 /// HW limits of feed rate
 #define HWLIMIT_NORMAL_MAX_FEEDRATE \
-    { 300, 300, 40, 120 }
+    { 200, 200, 40, 120 }
 #define HWLIMIT_STEALTH_MAX_FEEDRATE \
     { 160, 160, 40, 100 }
 
@@ -829,11 +829,11 @@
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
 #define DEFAULT_MAX_ACCELERATION \
-    { 1000, 1000, 400, 4000 }
+    { 1000, 1000, 400, 1000 }
 
 /// HW limits of max acceleration
 #define HWLIMIT_NORMAL_MAX_ACCELERATION \
-    { 7000, 7000, 750, 6000 }
+    { 2000, 2000, 750, 2000 }
 #define HWLIMIT_STEALTH_MAX_ACCELERATION \
     { 2500, 2500, 200, 2500 }
 
@@ -847,7 +847,7 @@
  */
 #define DEFAULT_ACCELERATION 1000 // X, Y, Z and E acceleration for printing moves
 #define DEFAULT_RETRACT_ACCELERATION 800 // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION 1500 // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_TRAVEL_ACCELERATION 1000 // X, Y, Z acceleration for travel (non printing) moves
 
 //
 // Use Junction Deviation instead of traditional Jerk Limiting
@@ -874,8 +874,8 @@
 #define DEFAULT_EJERK 2 // May be used by Linear Advance
 
 /// HW limits of Jerk
-#define HWLIMIT_NORMAL_JERK { 10, 10, 2, 10 }
-#define HWLIMIT_STEALTH_JERK { 8, 8, 2, 10 }
+#define HWLIMIT_NORMAL_JERK { 6, 6, 2, 4 }
+#define HWLIMIT_STEALTH_JERK { 6, 6, 2, 4 }
 
 /**
  * S-Curve Acceleration
@@ -1486,7 +1486,7 @@
 #endif
 
 // Homing speeds (mm/m)
-#define HOMING_FEEDRATE_XY (80 * 60)
+#define HOMING_FEEDRATE_XY (70 * 60)
 #define HOMING_FEEDRATE_Z (8 * 60)
 #define HOMING_FEEDRATE_INVERTED_Z (50 * 60)
 
