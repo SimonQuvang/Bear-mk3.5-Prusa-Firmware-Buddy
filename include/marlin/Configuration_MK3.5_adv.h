@@ -477,9 +477,9 @@
 #endif
 
 // Homing hits each endstop, retracts by these distances, then does a slower bump.
-#define X_HOME_BUMP_MM 10
-#define Y_HOME_BUMP_MM 10
-#define Z_HOME_BUMP_MM 3
+#define X_HOME_BUMP_MM 0
+#define Y_HOME_BUMP_MM 0
+#define Z_HOME_BUMP_MM 0
 #define HOMING_BUMP_DIVISOR \
     { 1, 1, 1 } // Re-Bump Speed Divisor (Divides the Homing Feedrate)
 #define HOMING_BUMP_DIVISOR_MAX \
@@ -489,7 +489,8 @@
 
 
 // If homing includes X and Y, do a diagonal move initially
-#define QUICK_HOME
+// Remove quick home as it can cause a bug if you are doing 0 bump homing
+// #define QUICK_HOME
 
 // Move away from the endstops after homing
 #define HOMING_BACKOFF_POST_MM { 2, 2, 0 }
@@ -1747,8 +1748,8 @@
 
     #define X_HYBRID_THRESHOLD 1000 // [mm/s]
     #define Y_HYBRID_THRESHOLD 1000
-    #define Z_HYBRID_THRESHOLD 1000
-    #define E0_HYBRID_THRESHOLD 700
+    #define Z_HYBRID_THRESHOLD 1
+    #define E0_HYBRID_THRESHOLD 9999
 
 /**
  * Provides crash detection during printing and proper crash recovery.
@@ -1756,7 +1757,7 @@
  */
 #define CRASH_RECOVERY
 #ifdef CRASH_RECOVERY
-    #define CRASH_STALL_GUARD { 7, 7 }    // internal value representing sensitivity
+    #define CRASH_STALL_GUARD { 2, 2 }    // internal value representing sensitivity
     #define CRASH_MAX_PERIOD { 210, 210 } // (steps per tick) - reciprocal value of minimal speed
     #define CRASH_FILTER (false)          // Stallguard filtering for crash detection
     #define CRASH_TIMER 45                // seconds before counter reset
@@ -1824,16 +1825,16 @@
     #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
         // The range of stallguard sensitivities to probe and calibrate
         // (the required sensitivity varies by motor)
-        #define XY_STALL_SENSITIVITY_MIN -8
-        #define XY_STALL_SENSITIVITY_MAX 8
+        #define XY_STALL_SENSITIVITY_MIN -5
+        #define XY_STALL_SENSITIVITY_MAX 2
 
         // Read from config. May be int16 max if uncalibrated, which is
         // then handled in the Crash_s class.
-        #define X_STALL_SENSITIVITY 2
+        #define X_STALL_SENSITIVITY 0
 
         // Read from config. May be int16 max if uncalibrated, which is
         // then handled in the Crash_s class.
-        #define Y_STALL_SENSITIVITY 2
+        #define Y_STALL_SENSITIVITY 0
 
         #define Z_STALL_SENSITIVITY 4
 
